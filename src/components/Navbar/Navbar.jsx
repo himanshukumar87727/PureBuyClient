@@ -10,6 +10,7 @@ import DropDownMenuData from './DropDownMenuData';
 export default function Navbar() {
 
   const [open, SetOpen] = useState(true)
+  const [Sign, SetSign] = useState(true)
 
   return (
     <header className="w-full bg-[#f8f5d7] shadow-md">
@@ -31,18 +32,23 @@ export default function Navbar() {
           <Search />
         </div>
 
-        <div className="flex items-center md:gap-4 gap-1.5 select-none">
+        {
+          Sign ? <DropDownProfile /> :
+            <div className="flex items-center md:gap-4 gap-1.5 select-none">
 
-          <button className="bg-white text-gray-800 rounded-full py-2 md:px-6 px-4 shadow-md hover:bg-gray-200 transition font-medium text-sm">
-            Log in
-          </button>
-          <button className="bg-green-600 text-white rounded-full py-2 md:px-6 px-4 shadow-md hover:bg-green-700 transition font-medium text-sm">
-            Sign up
-          </button>
+              <button className="bg-white text-gray-800 rounded-full py-2 md:px-6 px-4 shadow-md hover:bg-gray-200 transition font-medium text-sm">
+                Log in
+              </button>
+              <button className="bg-green-600 text-white rounded-full py-2 md:px-6 px-4 shadow-md hover:bg-green-700 transition font-medium text-sm">
+                Sign up
+              </button>
 
-          {open ? <></> : <DropDownMenuData />}
+              {open ? <></> : <DropDownMenuData />}
 
-        </div>
+            </div>
+        }
+
+
       </nav>
 
       <div className="md:hidden flex justify-center px-4 py-2 bg-[#f0eecb] border-t border-gray-300">
