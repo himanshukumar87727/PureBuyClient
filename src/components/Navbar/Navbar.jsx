@@ -5,10 +5,11 @@ import { BsBagHeartFill } from "react-icons/bs";
 import Search from './Search';
 import DropDownProfile from './DropDownProfile';
 import DropDownMenuData from './DropDownMenuData';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(true);
-  const [showProfile, setShowProfile] = useState(true); 
+  const [showProfile, setShowProfile] = useState(true);  
 
   return (
     <header className="w-full bg-[#f8f5d7] shadow-md relative">
@@ -22,12 +23,14 @@ export default function Navbar() {
             {menuOpen ? <FaBars /> : <IoCloseSharp />}
           </button>
 
-          <div className="flex items-center gap-2">
-            <BsBagHeartFill className="text-green-600 md:text-2xl text-xl" />
-            <h1 className="logo font-extrabold text-2xl text-green-600 select-none">
-              Pure<span className="text-green-700">Buy</span>
-            </h1>
-          </div>
+          <Link to="/">
+            <div className="flex items-center gap-2">
+              <BsBagHeartFill className="text-green-600 md:text-2xl text-xl" />
+              <h1 className="logo font-extrabold text-2xl text-green-600 select-none">
+                Pure<span className="text-green-700">Buy</span>
+              </h1>
+            </div>
+          </Link>
         </div>
 
         <div className="flex-grow max-w-md mx-6 hidden md:block">
@@ -38,12 +41,16 @@ export default function Navbar() {
           <DropDownProfile />
         ) : (
           <div className="flex items-center md:gap-4 gap-1.5 select-none">
+            <Link to='login'>
             <button className="bg-white text-gray-800 rounded-full py-2 md:px-6 px-4 shadow-md hover:bg-gray-200 transition font-medium text-sm">
               Log in
             </button>
+            </Link>
+            <Link to='signup'>
             <button className="bg-green-600 text-white rounded-full py-2 md:px-6 px-4 shadow-md hover:bg-green-700 transition font-medium text-sm">
               Sign up
             </button>
+            </Link>
           </div>
         )}
       </nav>
