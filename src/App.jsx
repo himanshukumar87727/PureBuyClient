@@ -2,6 +2,9 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Navbar, Profile, Setting, SignUp, Login, Footer, PageNotFound, Home } from './All Components'
 
+
+
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -17,7 +20,9 @@ export default function App() {
         <Route path='/*' element={<PageNotFound />} />
 
       </Routes>
+      
       <Footer />
     </BrowserRouter>
   )
 }
+
