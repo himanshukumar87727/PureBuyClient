@@ -1,4 +1,4 @@
-// File: SignUp.jsx
+
 import { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { BsBagHeartFill } from 'react-icons/bs';
