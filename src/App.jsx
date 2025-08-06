@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Navbar, Profile, Setting, SignUp, Login, Footer, PageNotFound, Home } from './All Components'
+import { Navbar, Profile, Setting, SignUp,Login, Footer, PageNotFound, Home,OtpVerification } from './All Components'
 
 
 
@@ -18,6 +18,9 @@ export default function App() {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
         <Route path='/*' element={<PageNotFound />} />
+        <Route path='/otp-verification/:type/:userId' element={<OtpVerification />} />
+        
+        
 
       </Routes>
       

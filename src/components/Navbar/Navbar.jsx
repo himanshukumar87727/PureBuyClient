@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(true);
-  const [showProfile, setShowProfile] = useState(true);
+  const [showProfile, setShowProfile] = useState(false);
 
   // 🔄 Placeholder logic
   const placeholders = [
@@ -20,10 +20,21 @@ export default function Navbar() {
   ];
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
 
+  // 🔐 Login check
+  useEffect(() => {
+    const token = localStorage.getItem("authToken"); // token check
+    if (token) {
+      setShowProfile(true);
+    } else {
+      setShowProfile(false);
+    }
+  }, []);
+
+  // 🔄 Placeholder changing
   useEffect(() => {
     const interval = setInterval(() => {
       setPlaceholderIndex((prevIndex) => (prevIndex + 1) % placeholders.length);
-    }, 1000); 
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
 
